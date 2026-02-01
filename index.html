@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Ordering System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">
+          <span class="logo-mark">R</span>
+          <span class="logo-text">Restaurant System</span>
+        </div>
+        <div class="header-right">
+          <button
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            type="button"
+            aria-label="Toggle mobile menu"
+          >
+            ☰
+          </button>
+          <nav class="main-nav" aria-label="Primary">
+            <button class="nav-link is-active" data-scroll-target="hero">
+              Home
+            </button>
+            <button class="nav-link" data-scroll-target="menu">
+              Menu
+            </button>
+            <button class="nav-link" data-scroll-target="order">
+              Your Order
+            </button>
+          </nav>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle color mode"
+          >
+            <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
+            <span class="theme-icon theme-icon-moon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <main>
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="hero-kicker">Smart Restaurant System</p>
+            <h1 id="hero-title" class="hero-title">
+              Order your favorite meals in seconds
+            </h1>
+            <p class="hero-subtitle">
+              Browse the menu, customize your order, and see your total update
+              in real time. Fast, simple, and delicious.
+            </p>
+            <button class="btn btn-primary hero-cta" data-scroll-target="menu">
+              View Menu
+            </button>
+          </div>
+          <div class="hero-panel" aria-hidden="true">
+            <div class="hero-card">
+              <p class="hero-card-label">Today&apos;s highlight</p>
+              <p class="hero-card-title">Double Cheese Burger</p>
+              <p class="hero-card-meta">Ready in 10 minutes</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="menu"
+        class="menu-section"
+        aria-labelledby="menu-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 id="menu-heading" class="section-title">Menu</h2>
+              <p class="section-subtitle">
+                Choose from categories or browse everything at once.
+              </p>
+            </div>
+            <div
+              id="category-filters"
+              class="category-filters"
+              role="tablist"
+              aria-label="Menu categories"
+            >
+              <button
+                class="chip is-selected"
+                role="tab"
+                aria-selected="true"
+                data-category="all"
+              >
+                All
+              </button>
+              <button
+                class="chip"
+                role="tab"
+                aria-selected="false"
+                data-category="burgers"
+              >
+                Burgers
+              </button>
+              <button
+                class="chip"
+                role="tab"
+                aria-selected="false"
+                data-category="pizza"
+              >
+                Pizza
+              </button>
+              <button
+                class="chip"
+                role="tab"
+                aria-selected="false"
+                data-category="drinks"
+              >
+                Drinks
+              </button>
+              <button
+                class="chip"
+                role="tab"
+                aria-selected="false"
+                data-category="desserts"
+              >
+                Desserts
+              </button>
+            </div>
+          </div>
+
+          <div class="layout">
+            <section
+              class="menu-list"
+              aria-label="Available menu items"
+              id="menu-list"
+            >
+              <!-- Menu cards will be rendered here by JavaScript -->
+            </section>
+
+            <aside
+              id="order"
+              class="order-panel"
+              aria-label="Order summary"
+            >
+              <div class="order-header">
+                <h2 class="order-title">Your Order</h2>
+                <p class="order-hint">
+                  Add items from the menu to build your order.
+                </p>
+              </div>
+
+              <div
+                id="order-items"
+                class="order-items"
+                aria-live="polite"
+              >
+                <!-- Order items rendered here -->
+              </div>
+
+              <div class="order-footer">
+                <div class="order-total-row">
+                  <span class="order-total-label">Total</span>
+                  <span id="order-total" class="order-total-value">
+                    $0.00
+                  </span>
+                </div>
+                <button id="checkout-btn" class="btn btn-secondary" disabled>
+                  Place Order
+                </button>
+                <p
+                  id="order-status"
+                  class="order-status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                ></p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-grid">
+          <section class="footer-column" aria-label="Policies">
+            <h3 class="footer-heading">Policies</h3>
+            <ul class="footer-list">
+              <li>Privacy Policy</li>
+              <li>Terms of Service</li>
+              <li>Refund Policy</li>
+            </ul>
+          </section>
+
+          <section class="footer-column" aria-label="Contact and support">
+            <h3 class="footer-heading">Contact &amp; Support</h3>
+            <ul class="footer-list">
+              <li>Phone: +962 7 1234 5678</li>
+              <li>Email: info@restaurant.com</li>
+              <li>Amman, Jordan</li>
+            </ul>
+          </section>
+
+          <section class="footer-column" aria-label="Follow us">
+            <h3 class="footer-heading">Follow Us</h3>
+            <div class="footer-social">
+              <button type="button" aria-label="Follow on Facebook">📘</button>
+              <button type="button" aria-label="Follow on Instagram">📷</button>
+              <button type="button" aria-label="Follow on Twitter">🐦</button>
+            </div>
+          </section>
+
+          <section class="footer-column" aria-label="Opening hours">
+            <h3 class="footer-heading">Hours</h3>
+            <ul class="footer-list">
+              <li>Mon - Fri: 10:00 AM - 10:00 PM</li>
+              <li>Sat - Sun: 11:00 AM - 11:00 PM</li>
+            </ul>
+          </section>
+        </div>
+
+        <p class="footer-text">
+          &copy; <span id="year"></span> Restaurant System. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Complete Your Order</h2>
+          <button class="modal-close" id="modal-close" type="button" aria-label="Close modal">
+            ✕
+          </button>
+        </div>
+        
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-group">
+            <label for="customer-name" class="form-label">Full Name *</label>
+            <input type="text" id="customer-name" name="name" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="customer-phone" class="form-label">Phone Number *</label>
+            <input type="tel" id="customer-phone" name="phone" class="form-input" placeholder="079*******" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="customer-email" class="form-label">Email Address *</label>
+            <input type="email" id="customer-email" name="email" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="customer-address" class="form-label">Delivery Address *</label>
+            <textarea id="customer-address" name="address" class="form-textarea" rows="3" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Payment Method *</label>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cash" class="payment-radio" required>
+                <span class="payment-label">Cash on Delivery</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="electronic" class="payment-radio" required>
+                <span class="payment-label">Electronic Payment</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="order-summary">
+            <h3 class="summary-title">Order Summary</h3>
+            <div id="modal-order-items" class="modal-order-items"></div>
+            <div class="summary-total">
+              <span class="total-label">Total:</span>
+              <span id="modal-order-total" class="total-value">$0.00</span>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancel-order">Cancel</button>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
